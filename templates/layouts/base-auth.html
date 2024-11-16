@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - PowerMinds</title>
+    <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">
+</head>
+<body style="background-color: #007EA7">
+    {% block content %}{% endblock %}
+    <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>

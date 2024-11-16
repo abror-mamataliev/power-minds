@@ -1,0 +1,39 @@
+{% extends 'layouts/base-auth.html' %}
+
+{% load socialaccount %}
+
+{% block title %}Signin{% endblock %}
+
+{% block style %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 bg-light rounded-5 mt-5">
+                <h2 class="text-center mt-4 mb-5">Login to system</h2>
+                <form action="{% url 'oauth:signin' %}" method="POST">
+                    {% for field in login_form %}
+                        {{ field }}
+                    {% endfor %}
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-auto mb-0 text-muted">OR</p>
+                    </div>
+                    <div class="w-50 mx-auto text-center mb-4">
+                        <a class="btn btn-outline-dark"
+                           href="{% provider_login_url 'google' redirect='/accounts/google/login/' %}" role="button"
+                           style="text-transform:none">
+                            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+                                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+                            Login with Google
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}{% endblock %}
